@@ -28,15 +28,15 @@ Photostash is configured using environment variables. Use the `heroku config` co
 
 $ heroku config:add VARIABLE=value
 
-Required settings::
+Required settings:
 
-  * `SECRET_KEY`: A secret key for this particular Django installation. Used to provide a seed in secret-key hashing algorithms. Set this to a random string -- the longer, the better.
-  * `AWS_ACCESS_KEY_ID`: Your Amazon Web Services access key, as a string.
-  * `AWS_SECRET_ACCESS_KEY`: Your Amazon Web Services secret access key, as a string.
+  - `SECRET_KEY`: A secret key for this particular Django installation. Used to provide a seed in secret-key hashing algorithms. Set this to a random string -- the longer, the better.
+  - `AWS_ACCESS_KEY_ID`: Your Amazon Web Services access key, as a string.
+  - `AWS_SECRET_ACCESS_KEY`: Your Amazon Web Services secret access key, as a string.
 
-Optional settings::
+Optional settings:
 
-  * `DEBUG`: A boolean that turns on/off debug mode. Only use this if you really, really need to.
+  - `DEBUG`: A boolean that turns on/off debug mode. Only use this if you really, really need to.
 
 
 Developing
