@@ -43,7 +43,7 @@ Response::
         "id": "2",
         "name": "vacation",
         "resource_uri": "/api/v1/albums/2/"
-      },
+      }
     ]
   }
 
@@ -190,7 +190,7 @@ Response::
     "id": "1",
     "image": "..path..",
     "resource_uri": "/api/v1/photos/1/"
-  },
+  }
 
 
 **Get**
@@ -208,7 +208,7 @@ Response::
     "id": "1",
     "image": "..path..",
     "resource_uri": "/api/v1/photos/1/"
-  },
+  }
 
 
 **Delete**
