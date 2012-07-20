@@ -221,6 +221,110 @@ Response::
 
 
 
+Album Photos
+~~~~~~~~~~~~
+
+*Album photos represent a relationship between a photo and a album.*
+
+
+**List**
+
+List all album photos in the system::
+
+  GET /albumphotos/
+
+Parameters:
+
+  - **album** - ID of the album you want to filter on.
+  - **photo** - ID of the photo you want to filter on.
+
+Response::
+
+  Status: 200 OK
+
+  {
+    "meta": {
+      "limit": 20,
+      "next": null,
+      "offset": 0,
+      "previous": null,
+      "total_count": 2
+    },
+    "objects": [
+      {
+        "album": "/api/v1/albums/1/",
+        "id": "1",
+        "photo": "/api/v1/photos/1/",
+        "resource_uri": "/api/v1/albumphotos/1/"
+      },
+      {
+        "album": "/api/v1/albums/1/",
+        "id": "2",
+        "photo": "/api/v1/photos/2/",
+        "resource_uri": "/api/v1/albumphotos/2/"
+      }
+    ]
+  }
+
+
+**Create**
+
+Create a new album::
+
+  POST /albumphoto/
+
+Input:
+
+  - **album** - *Required* URI of the album
+  - **photo** - *Required* URI of the photo
+
+Example::
+
+  {
+    "album": "/api/v1/albums/1/",
+    "photo": "/api/v1/photos/1/"
+  }
+
+Response::
+
+  Status: 201 Created
+
+  {
+    "album": "/api/v1/albums/1/",
+    "id": "1",
+    "photo": "/api/v1/photos/1/",
+    "resource_uri": "/api/v1/albumphotos/1/"
+  }
+
+
+**Get**
+
+  GET /albumphotos/1/
+
+Response::
+
+  Status: 200 OK
+
+  {
+    "albumphotos": [
+      "/api/v1/albumphotos/1/"
+    ],
+    "id": "1",
+    "image": "..path..",
+    "resource_uri": "/api/v1/photos/1/"
+  }
+
+
+**Delete**
+
+  DELETE /albumphotos/1/
+
+Response::
+
+  Status: 204 No Content
+
+
+
 Deploying
 ---------
 
