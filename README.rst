@@ -61,7 +61,7 @@ Start up the server::
 
 Running the test suite::
 
-  $ python photostash/manage.py test
+  $ python photostash/manage.py test --settings=tests.settings
 
 
 API Endpoints

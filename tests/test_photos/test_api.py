@@ -1,5 +1,6 @@
 from urlparse import urlparse
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.utils import simplejson
@@ -8,6 +9,13 @@ from photostash.photos.models import Album, Photo, AlbumPhoto
 
 
 class ApiTestCase(TestCase):
+
+    def setUp(self):
+        self.old_MEDIA_ROOT = settings.MEDIA_ROOT
+        settings.MEDIA_ROOT = '/tmp/test-uploads/'
+
+    def tearDown(self):
+        settings.MEDIA_ROOT = self.old_MEDIA_ROOT
 
     def list_url(self, resource_name=None):
         resource_name = resource_name or self.resource_name
@@ -183,12 +191,11 @@ class AlbumPhotoApiTestCase(ApiTestCase):
         self.assertJSONEqual(response, album_photos, lambda x: x['objects'])
 
     def test_list_by_album_and_photo(self):
-        album1 = Album.objects.create(name='album1')
-        photo1 = Photo.objects.create(image='photo1')
-        album2 = Album.objects.create(name='album2')
-        photo2 = Photo.objects.create(image='photo2')
-        AlbumPhoto.objects.create(photo=photo1, album=album1)
-        response = self.list(album=album1.pk, photo=photo1.pk)
+        album = Album.objects.create(name='album')
+        photo = Photo.objects.create(image='photo1')
+        Photo.objects.create(image='photo2')
+        AlbumPhoto.objects.create(photo=photo, album=album)
+        response = self.list(album=album.pk, photo=photo.pk)
         objects = simplejson.loads(response.content)['objects']
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(objects), 1)
