@@ -137,6 +137,8 @@ Response::
 
 **Get**
 
+Get a single album::
+
   GET /albums/1/
 
 Response::
@@ -151,6 +153,8 @@ Response::
 
 
 **Update**
+
+Update a single album::
 
   PUT /albums/1/
 
@@ -173,6 +177,8 @@ Response::
   }
 
 **Delete**
+
+Delete a single album::
 
   DELETE /albums/1/
 
@@ -257,6 +263,8 @@ Response::
 
 **Get**
 
+Get a single photo::
+
   GET /photos/1/
 
 Response::
@@ -274,6 +282,8 @@ Response::
 
 
 **Delete**
+
+Delete a single photo::
 
   DELETE /photos/1/
 
@@ -361,6 +371,8 @@ Response::
 
 **Get**
 
+Get a single album photo::
+
   GET /albumphotos/1/
 
 Response::
@@ -378,6 +390,8 @@ Response::
 
 
 **Delete**
+
+Delete a single album photo::
 
   DELETE /albumphotos/1/
 
